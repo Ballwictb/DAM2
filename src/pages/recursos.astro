@@ -1,0 +1,291 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const recursos = [
+  {
+    categoria: 'Desarrollo Frontend',
+    herramientas: [
+      { nombre: 'VS Code', descripcion: 'Editor de código con excelente soporte para desarrollo web.', link: 'https://code.visualstudio.com' },
+      { nombre: 'MDN Web Docs', descripcion: 'Documentación completa para desarrollo web.', link: 'https://developer.mozilla.org' },
+      { nombre: 'Vite', descripcion: 'Constructor rápido para proyectos web modernos.', link: 'https://vitejs.dev' },
+      { nombre: 'Next.js', descripcion: 'Framework React para aplicaciones web optimizadas.', link: 'https://nextjs.org' },
+      { nombre: 'React', descripcion: 'Biblioteca para construir interfaces de usuario.', link: 'https://reactjs.org' },
+      { nombre: 'Vue.js', descripcion: 'Framework progresivo para construir interfaces web.', link: 'https://vuejs.org' },
+      { nombre: 'Angular', descripcion: 'Framework de desarrollo web frontend.', link: 'https://angular.io' },
+      { nombre: 'Webpack', descripcion: 'Empaquetador de módulos para proyectos web.', link: 'https://webpack.js.org' },
+      { nombre: 'Tailwind CSS', descripcion: 'Framework CSS utility-first.', link: 'https://tailwindcss.com' },
+      { nombre: 'Svelte', descripcion: 'Framework moderno para construir interfaces web.', link: 'https://svelte.dev' },
+      { nombre: 'Babel', descripcion: 'Transpilador para convertir código moderno a versiones compatibles.', link: 'https://babeljs.io' },
+      { nombre: 'Parcel', descripcion: 'Empaquetador de aplicaciones web sencillo y rápido.', link: 'https://parceljs.org' },
+      { nombre: 'ESLint', descripcion: 'Herramienta para mantener estándares de codificación.', link: 'https://eslint.org' },
+      { nombre: 'Prettier', descripcion: 'Formateador de código para mantener consistencia.', link: 'https://prettier.io' },
+      { nombre: 'Storybook', descripcion: 'Entorno para desarrollar componentes UI aislados.', link: 'https://storybook.js.org' },
+      { nombre: 'Chakra UI', descripcion: 'Framework de componentes React accesibles.', link: 'https://chakra-ui.com' },
+      { nombre: 'Framer Motion', descripcion: 'Librería para animaciones en React.', link: 'https://www.framer.com/motion/' },
+      { nombre: 'Lit', descripcion: 'Framework para crear web components rápidos y ligeros.', link: 'https://lit.dev' },
+      { nombre: 'Alpine.js', descripcion: 'Framework minimalista para interacción frontend.', link: 'https://alpinejs.dev' },
+      { nombre: 'Cypress', descripcion: 'Framework de pruebas para aplicaciones web.', link: 'https://www.cypress.io' }
+    ]
+  },{
+    categoria: 'Diseño UI/UX',
+    herramientas: [
+      { nombre: 'Figma', descripcion: 'Herramienta de diseño colaborativo.', link: 'https://figma.com' },
+      { nombre: 'Adobe XD', descripcion: 'Herramienta de diseño de interfaces.', link: 'https://www.adobe.com/products/xd.html' },
+      { nombre: 'Sketch', descripcion: 'Software de diseño digital para macOS.', link: 'https://www.sketch.com' },
+      { nombre: 'Zeplin', descripcion: 'Plataforma para colaborar en diseño y desarrollo.', link: 'https://zeplin.io' },
+      { nombre: 'InVision', descripcion: 'Herramienta de diseño y prototipado.', link: 'https://www.invisionapp.com' },
+      { nombre: 'Affinity Designer', descripcion: 'Software de diseño gráfico profesional.', link: 'https://affinity.serif.com/designer/' },
+      { nombre: 'Marvel App', descripcion: 'Herramienta de diseño y prototipado.', link: 'https://marvelapp.com' },
+      { nombre: 'Canva', descripcion: 'Plataforma de diseño gráfico en línea.', link: 'https://www.canva.com' },
+      { nombre: 'LottieFiles', descripcion: 'Plataforma para animaciones ligeras.', link: 'https://lottiefiles.com' },
+      { nombre: 'Flinto', descripcion: 'Herramienta para diseño interactivo de apps.', link: 'https://www.flinto.com' },
+      { nombre: 'Principle', descripcion: 'Software de diseño y animación interactiva.', link: 'https://principleformac.com' },
+      { nombre: 'Avocode', descripcion: 'Colaboración entre diseño y desarrollo.', link: 'https://avocode.com' },
+      { nombre: 'UXPin', descripcion: 'Herramienta para diseño y colaboración UX.', link: 'https://www.uxpin.com' },
+      { nombre: 'Balsamiq', descripcion: 'Herramienta para wireframes rápidos.', link: 'https://balsamiq.com' },
+      { nombre: 'Axure RP', descripcion: 'Plataforma avanzada de prototipado.', link: 'https://www.axure.com' },
+      { nombre: 'Framer', descripcion: 'Prototipado interactivo basado en código.', link: 'https://www.framer.com' },
+      { nombre: 'Designmodo', descripcion: 'Herramienta para diseño y desarrollo frontend.', link: 'https://designmodo.com' },
+      { nombre: 'ProtoPie', descripcion: 'Herramienta de prototipado avanzado.', link: 'https://www.protopie.io' },
+      { nombre: 'Blush', descripcion: 'Crea ilustraciones personalizadas.', link: 'https://blush.design' },
+      { nombre: 'Anima', descripcion: 'Convierte diseños en código frontend.', link: 'https://www.animaapp.com' }
+    ]
+  },{
+  categoria: 'Bases de Datos',
+    herramientas: [
+      { nombre: 'PostgreSQL', descripcion: 'Base de datos relacional avanzada y de código abierto.', link: 'https://www.postgresql.org' },
+      { nombre: 'MongoDB', descripcion: 'Base de datos NoSQL orientada a documentos.', link: 'https://www.mongodb.com' },
+      { nombre: 'MySQL', descripcion: 'Base de datos relacional ampliamente utilizada.', link: 'https://www.mysql.com' },
+      { nombre: 'SQLite', descripcion: 'Base de datos relacional ligera y sin servidor.', link: 'https://sqlite.org' },
+      { nombre: 'Redis', descripcion: 'Base de datos en memoria para almacenamiento de datos clave-valor.', link: 'https://redis.io' },
+      { nombre: 'Firebase Firestore', descripcion: 'Base de datos NoSQL en la nube.', link: 'https://firebase.google.com/products/firestore' },
+      { nombre: 'Cassandra', descripcion: 'Base de datos NoSQL distribuida.', link: 'https://cassandra.apache.org' },
+      { nombre: 'DynamoDB', descripcion: 'Base de datos NoSQL de Amazon.', link: 'https://aws.amazon.com/dynamodb/' },
+      { nombre: 'Neo4j', descripcion: 'Base de datos orientada a grafos.', link: 'https://neo4j.com' },
+      { nombre: 'CockroachDB', descripcion: 'Base de datos SQL distribuida.', link: 'https://www.cockroachlabs.com' },
+      { nombre: 'Elasticsearch', descripcion: 'Motor de búsqueda y análisis distribuido.', link: 'https://www.elastic.co/elasticsearch/' },
+      { nombre: 'InfluxDB', descripcion: 'Base de datos optimizada para series de tiempo.', link: 'https://www.influxdata.com' },
+      { nombre: 'ArangoDB', descripcion: 'Base de datos multi-modelo.', link: 'https://www.arangodb.com' },
+      { nombre: 'Supabase', descripcion: 'Alternativa a Firebase basada en PostgreSQL.', link: 'https://supabase.com' },
+      { nombre: 'PlanetScale', descripcion: 'Base de datos relacional escalable basada en Vitess.', link: 'https://planetscale.com' },
+      { nombre: 'ClickHouse', descripcion: 'Base de datos para análisis rápido de grandes volúmenes de datos.', link: 'https://clickhouse.com' },
+      { nombre: 'TimescaleDB', descripcion: 'Extensión de PostgreSQL para datos de series temporales.', link: 'https://www.timescale.com' },
+      { nombre: 'Snowflake', descripcion: 'Plataforma de almacenamiento y análisis en la nube.', link: 'https://www.snowflake.com' },
+      { nombre: 'Azure Cosmos DB', descripcion: 'Base de datos global y distribuida.', link: 'https://azure.microsoft.com/services/cosmos-db/' },
+      { nombre: 'RethinkDB', descripcion: 'Base de datos en tiempo real para aplicaciones modernas.', link: 'https://rethinkdb.com' }
+    ]
+  },{
+    categoria: 'Herramientas de Automatización',
+    herramientas: [
+      { nombre: 'Ansible', descripcion: 'Herramienta para automatización de configuración y despliegue.', link: 'https://www.ansible.com' },
+      { nombre: 'Terraform', descripcion: 'Herramienta para infraestructura como código.', link: 'https://www.terraform.io' },
+      { nombre: 'Jenkins', descripcion: 'Servidor de automatización para CI/CD.', link: 'https://www.jenkins.io' },
+      { nombre: 'Puppet', descripcion: 'Automatización de configuración de sistemas.', link: 'https://puppet.com' },
+      { nombre: 'Chef', descripcion: 'Framework para gestión de configuración.', link: 'https://www.chef.io' },
+      { nombre: 'GitHub Actions', descripcion: 'Automatización de flujos de trabajo para proyectos GitHub.', link: 'https://github.com/features/actions' },
+      { nombre: 'GitLab CI/CD', descripcion: 'Automatización y entrega continua integrada.', link: 'https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/' },
+      { nombre: 'CircleCI', descripcion: 'Plataforma para integración y despliegue continuo.', link: 'https://circleci.com' },
+      { nombre: 'Zapier', descripcion: 'Automatización de flujos de trabajo entre aplicaciones.', link: 'https://zapier.com' },
+      { nombre: 'Make (Integromat)', descripcion: 'Plataforma para automatizar procesos.', link: 'https://www.make.com' },
+      { nombre: 'SaltStack', descripcion: 'Gestión de configuración y automatización.', link: 'https://www.saltproject.io' },
+      { nombre: 'ArgoCD', descripcion: 'Herramienta para GitOps en Kubernetes.', link: 'https://argo-cd.readthedocs.io' },
+      { nombre: 'Gradle', descripcion: 'Automatización de construcción de software.', link: 'https://gradle.org' },
+      { nombre: 'Octopus Deploy', descripcion: 'Automatización de despliegue de software.', link: 'https://octopus.com' },
+      { nombre: 'Azure DevOps', descripcion: 'Plataforma para integración, entrega y planificación.', link: 'https://azure.microsoft.com/services/devops/' },
+      { nombre: 'AWS CodePipeline', descripcion: 'Automatización para entrega continua en AWS.', link: 'https://aws.amazon.com/codepipeline/' },
+      { nombre: 'Kubernetes Operators', descripcion: 'Automatización de tareas en Kubernetes.', link: 'https://kubernetes.io/docs/concepts/extend-kubernetes/operator/' },
+      { nombre: 'Apache Airflow', descripcion: 'Plataforma para flujos de trabajo programables.', link: 'https://airflow.apache.org' },
+      { nombre: 'Taskfile', descripcion: 'Automatización simple basada en archivos de tareas.', link: 'https://taskfile.dev' },
+      { nombre: 'Spinnaker', descripcion: 'Plataforma para entregas continuas multi-nube.', link: 'https://spinnaker.io' }
+    ]
+  },{
+    categoria: 'Seguridad y Auditoría',
+    herramientas: [
+      { nombre: 'OWASP ZAP', descripcion: 'Herramienta para pruebas de seguridad en aplicaciones web.', link: 'https://owasp.org/www-project-zap/' },
+      { nombre: 'Burp Suite', descripcion: 'Plataforma para pruebas de seguridad web.', link: 'https://portswigger.net/burp' },
+      { nombre: 'Nmap', descripcion: 'Escáner de redes y auditoría de seguridad.', link: 'https://nmap.org' },
+      { nombre: 'Metasploit', descripcion: 'Framework para pruebas de penetración.', link: 'https://www.metasploit.com' },
+      { nombre: 'Wireshark', descripcion: 'Analizador de tráfico de red.', link: 'https://www.wireshark.org' },
+      { nombre: 'Vault', descripcion: 'Gestión de secretos y acceso.', link: 'https://www.vaultproject.io' },
+      { nombre: 'Snort', descripcion: 'Sistema de detección de intrusos.', link: 'https://www.snort.org' },
+      { nombre: 'Checkmarx', descripcion: 'Herramienta de análisis de código estático.', link: 'https://www.checkmarx.com' },
+      { nombre: 'Clair', descripcion: 'Análisis de vulnerabilidades en contenedores.', link: 'https://github.com/quay/clair' },
+      { nombre: 'Nikto', descripcion: 'Escáner de servidores web.', link: 'https://cirt.net/Nikto2' }
+    ]
+  },{
+    categoria: 'Datos Geográficos y Localización (API)',
+    herramientas: [
+      {
+        nombre: 'OpenWeatherMap',
+        descripcion: 'Ofrece datos meteorológicos en tiempo real, previsiones y datos históricos.',
+        link: 'https://openweathermap.org/api'
+      },
+      {
+        nombre: 'GeoJS',
+        descripcion: 'API para obtener geolocalización basada en IP.',
+        link: 'https://www.geojs.io/'
+      },
+      {
+        nombre: 'Location Finder API',
+        descripcion: 'Proporciona información detallada de ubicación como países y direcciones.',
+        link: 'https://www.allthingsdev.co'
+      },
+      {
+        nombre: 'Nominatim API',
+        descripcion: 'Geocodificación y búsqueda de ubicaciones basada en OpenStreetMap.',
+        link: 'https://nominatim.openstreetmap.org/'
+      },
+      {
+        nombre: 'Mapbox Static API',
+        descripcion: 'Genera mapas estáticos personalizados.',
+        link: 'https://www.mapbox.com/'
+      }
+    ]
+  },{
+    categoria: 'Datos de Finanza y Criptomonedas (API)',
+    herramientas: [
+      {
+        nombre: 'ExchangeRate API',
+        descripcion: 'Ofrece tasas de cambio de divisas en tiempo real.',
+        link: 'https://open.er-api.com/v6/latest/USD'
+      },
+      {
+        nombre: 'Coinpaprika API',
+        descripcion: 'Datos completos sobre criptomonedas.',
+        link: 'https://api.coinpaprika.com/'
+      },
+      {
+        nombre: 'Free Forex API',
+        descripcion: 'Proporciona tasas de cambio de divisas actualizadas.',
+        link: 'https://rapidapi.com/collection/forex-api'
+      },
+      {
+        nombre: 'Kraken API',
+        descripcion: 'Datos de mercado sobre criptomonedas.',
+        link: 'https://docs.kraken.com/'
+      },
+      {
+        nombre: 'NBP Web API',
+        descripcion: 'Datos sobre tasas de cambio y precios del oro.',
+        link: 'http://api.nbp.pl/'
+      }
+    ]
+  },
+  {
+    categoria: 'Datos Multimedia (API)',
+    herramientas: [
+      {
+        nombre: 'Spotify API',
+        descripcion: 'Acceso al catálogo musical de Spotify.',
+        link: 'https://developer.spotify.com/documentation/web-api/'
+      },
+      {
+        nombre: 'OMDb API',
+        descripcion: 'Base de datos abierta de películas y series.',
+        link: 'https://www.omdbapi.com/'
+      },
+      {
+        nombre: 'TheCatAPI',
+        descripcion: 'Imágenes y datos curiosos sobre gatos.',
+        link: 'https://thecatapi.com/'
+      },
+      {
+        nombre: 'Pexels API',
+        descripcion: 'Fotos y videos gratuitos.',
+        link: 'https://www.pexels.com/api/'
+      },
+      {
+        nombre: 'Giphy API',
+        descripcion: 'GIFs animados populares.',
+        link: 'https://developers.giphy.com/'
+      }
+    ]
+  },
+  {
+    categoria: 'Herramientas para Desarrollo (API)',
+    herramientas: [
+      {
+        nombre: 'FakeJSON',
+        descripcion: 'Generador de datos ficticios para pruebas.',
+        link: 'https://fakejson.com/'
+      },
+      {
+        nombre: 'Agify.io',
+        descripcion: 'Predice la edad basada en un nombre.',
+        link: 'https://agify.io/'
+      },
+      {
+        nombre: 'HTTPBin',
+        descripcion: 'API para pruebas de solicitudes HTTP.',
+        link: 'https://httpbin.org/'
+      },
+      {
+        nombre: 'Postman API',
+        descripcion: 'Acceso programático a datos almacenados en Postman.',
+        link: 'https://www.postman.com/'
+      },
+      {
+        nombre: 'Image-Charts',
+        descripcion: 'Crea gráficos en formato de imagen.',
+        link: 'https://documentation.image-charts.com/'
+      }
+    ]
+  },
+  {
+    categoria: 'Educación y Lenguaje (API)',
+    herramientas: [
+      {
+        nombre: 'WordsAPI',
+        descripcion: 'Definiciones, sinónimos, y más.',
+        link: 'https://www.wordsapi.com/'
+      },
+      {
+        nombre: 'Google Books API',
+        descripcion: 'Acceso a datos de libros y bibliotecas.',
+        link: 'https://developers.google.com/books/'
+      },
+      {
+        nombre: 'Genderize.io',
+        descripcion: 'Predice el género basado en un nombre.',
+        link: 'https://genderize.io/'
+      },
+      {
+        nombre: 'QR Code Generator API',
+        descripcion: 'Crea códigos QR personalizados.',
+        link: 'https://api.qrserver.com/'
+      },
+      {
+        nombre: 'OpenAI API',
+        descripcion: 'Capacidades avanzadas de procesamiento de lenguaje natural.',
+        link: 'https://openai.com/api/'
+      }
+    ]
+  }
+];
+
+---
+
+<Layout title="Recursos y Herramientas">
+	<div class="space-y-12 py-8">
+		<h1 class="text-3xl font-medium text-slate-800 dark:text-white">Recursos y Herramientas</h1>
+		
+		{recursos.map(categoria => (
+			<section class="space-y-4">
+				<h2 class="text-xl font-medium text-slate-800 dark:text-white">{categoria.categoria}</h2>
+				<div class="grid md:grid-cols-2 gap-4">
+					{categoria.herramientas.map(herramienta => (
+						<a href={herramienta.link} 
+						   target="_blank" 
+						   rel="noopener noreferrer" 
+						   class="group block p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-slate-200 dark:hover:border-slate-600 hover:shadow-sm">
+							<h3 class="text-lg font-medium text-slate-800 dark:text-white mb-2 group-hover:text-slate-600 dark:group-hover:text-slate-300">
+								{herramienta.nombre}
+							</h3>
+							<p class="text-slate-600 dark:text-slate-300">{herramienta.descripcion}</p>
+						</a>
+					))}
+				</div>
+			</section>
+		))}
+	</div>
+</Layout>

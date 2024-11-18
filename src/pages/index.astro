@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Daw2 - Inicio">
+	<div class="space-y-12 py-8">
+		<section class="text-center">
+			<h1 class="text-4xl font-medium text-slate-800 dark:text-white mb-4">Desarrollo de Aplicaciones Web</h1>
+			<p class="text-xl text-slate-600 dark:text-slate-300">¡Nueva interfaz disponible! He añadido varios apartados nuevos que espero os resulten útiles y faciliten el acceso a la información.</p>
+		</section>
+
+		<div class="grid md:grid-cols-3 gap-6">
+			<a href="./horario" 
+			   class="group p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-slate-200 dark:hover:border-slate-600 hover:shadow-sm">
+				<h2 class="text-xl font-medium text-slate-800 dark:text-white mb-3 group-hover:text-slate-600 dark:group-hover:text-slate-300">Horario</h2>
+				<p class="text-slate-600 dark:text-slate-300">Consulta el horario</p>
+			</a>
+
+			<a href="./calendario" 
+			   class="group p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-slate-200 dark:hover:border-slate-600 hover:shadow-sm">
+				<h2 class="text-xl font-medium text-slate-800 dark:text-white mb-3 group-hover:text-slate-600 dark:group-hover:text-slate-300">Calendario</h2>
+				<p class="text-slate-600 dark:text-slate-300">Exámenes y entregas</p>
+			</a>
+
+			<a href="./recursos" 
+			   class="group p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-slate-200 dark:hover:border-slate-600 hover:shadow-sm">
+				<h2 class="text-xl font-medium text-slate-800 dark:text-white mb-3 group-hover:text-slate-600 dark:group-hover:text-slate-300">Recursos</h2>
+				<p class="text-slate-600 dark:text-slate-300">Herramientas para desarrollo web</p>
+			</a>
+		</div>
+	</div>
+</Layout>

@@ -1,0 +1,168 @@
+---
+// src/pages/horario.astro
+import Layout from "../layouts/Layout.astro";
+
+const horario = [
+  {
+    dia: "Lunes",
+    clases: [
+      { hora: "08:30 - 09:20", asignatura: "DISEÑO WEB" },
+      { hora: "09:25 - 10:15", asignatura: "DISEÑO WEB" },
+      { hora: "10:20 - 11:10", asignatura: "DISEÑO WEB" },
+      { hora: "11:35 - 12:25", asignatura: "APLICACIONES WEB" },
+      { hora: "12:30 - 13:20", asignatura: "EIE" },
+      { hora: "13:25 - 14:15", asignatura: "EIE" },
+      { hora: "14:20 - 15:10", asignatura: "REC PEND PROG1" },
+    ],
+  },
+  {
+    dia: "Martes",
+    clases: [
+      { hora: "08:30 - 09:20", asignatura: "WEB CLIENTE" },
+      { hora: "09:25 - 10:15", asignatura: "WEB CLIENTE" },
+      { hora: "10:20 - 11:10", asignatura: "WEB CLIENTE" },
+      { hora: "11:35 - 12:25", asignatura: "WEB SERVIDOR" },
+      { hora: "12:30 - 13:20", asignatura: "WEB SERVIDOR" },
+      { hora: "13:25 - 14:15", asignatura: "WEB SERVIDOR" },
+    ],
+  },
+  {
+    dia: "Miércoles",
+    clases: [
+      { hora: "08:30 - 09:20", asignatura: "DISEÑO WEB" },
+      { hora: "09:25 - 10:15", asignatura: "DISEÑO WEB" },
+      { hora: "10:20 - 11:10", asignatura: "DISEÑO WEB" },
+      { hora: "11:35 - 12:25", asignatura: "WEB SERVIDOR" },
+      { hora: "12:30 - 13:20", asignatura: "WEB SERVIDOR" },
+      { hora: "13:25 - 14:15", asignatura: "WEB SERVIDOR" },
+      { hora: "14:20 - 15:10", asignatura: "TUTORIA" },
+    ],
+  },
+  {
+    dia: "Jueves",
+    clases: [
+      { hora: "08:30 - 09:20", asignatura: "INGLES" },
+      { hora: "09:25 - 10:15", asignatura: "INGLES" },
+      { hora: "10:20 - 11:10", asignatura: "WEB SERVIDOR" },
+      { hora: "11:35 - 12:25", asignatura: "WEB SERVIDOR" },
+      { hora: "12:30 - 13:20", asignatura: "WEB SERVIDOR" },
+      { hora: "13:25 - 14:15", asignatura: "EIE" },
+    ],
+  },
+  {
+    dia: "Viernes",
+    clases: [
+      { hora: "08:30 - 09:20", asignatura: "WEB CLIENTE" },
+      { hora: "09:25 - 10:15", asignatura: "WEB CLIENTE" },
+      { hora: "10:20 - 11:10", asignatura: "WEB CLIENTE" },
+      { hora: "11:35 - 12:25", asignatura: "APLICACIONES WEB" },
+      { hora: "12:30 - 13:20", asignatura: "APLICACIONES WEB" },
+      { hora: "13:25 - 14:15", asignatura: "APLICACIONES WEB" },
+    ],
+  },
+];
+---
+
+<Layout title="Horario de Clases 2024">
+  <main class="container mx-auto px-4 py-8">
+    <h1
+      class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100"
+    >
+      Horario
+    </h1>
+
+    <nav class="mb-8">
+      <ul class="flex flex-wrap justify-center gap-2">
+        {
+          horario.map((dia, index) => (
+            <li>
+              <button
+                class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                     text-gray-700 bg-gray-100 hover:bg-gray-200
+                     dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
+                id={`tab-${index}`}
+              >
+                {dia.dia}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    {
+      horario.map((dia, index) => (
+        <div id={`schedule-${index}`} class="hidden">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+            {dia.dia}
+          </h2>
+          <div class="space-y-4">
+            {dia.clases.map((clase) => (
+              <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg p-4 transition-all duration-200 ease-in-out hover:shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                  <h3 class="text-lg font-medium text-gray-800 dark:text-gray-100">
+                    {clase.asignatura}
+                  </h3>
+                  <span class="text-sm text-gray-600 dark:text-gray-400">
+                    {clase.hora}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll('[id^="tab-"]');
+    const schedules = document.querySelectorAll('[id^="schedule-"]');
+
+    function showSchedule(index) {
+      schedules.forEach((schedule, i) => {
+        if (i === index) {
+          schedule.classList.remove("hidden");
+        } else {
+          schedule.classList.add("hidden");
+        }
+      });
+
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add(
+            "bg-indigo-500",
+            "text-white",
+            "dark:bg-indigo-600"
+          );
+          tab.classList.remove(
+            "text-gray-700",
+            "bg-gray-100",
+            "dark:text-gray-200",
+            "dark:bg-gray-800"
+          );
+        } else {
+          tab.classList.remove(
+            "bg-indigo-500",
+            "text-white",
+            "dark:bg-indigo-600"
+          );
+          tab.classList.add(
+            "text-gray-700",
+            "bg-gray-100",
+            "dark:text-gray-200",
+            "dark:bg-gray-800"
+          );
+        }
+      });
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => showSchedule(index));
+    });
+
+    showSchedule(0);
+  });
+</script>

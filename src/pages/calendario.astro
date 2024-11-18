@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const eventos = [
+  {
+    fecha: '2024-11-19',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de Tarea para entregar "5-2-Ejerciciosut5dwec"',
+    descripcion: 'EJERCICIOS CON EVENTOS (Envio/Reset de formularios (Aceptar/cancelar)',
+    hora: '23:59'
+  },
+  {
+    fecha: '2024-11-20',
+    tipo: 'Examen',
+    asignatura: 'Examen parcial de Servidor',
+    descripcion: '',
+    hora: '11:35'
+  }, 
+  {
+    fecha: '2024-11-22',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de EJERCICIOUT4-1-nuevasetiquetas',
+    descripcion: 'CREAR UN FORMULARIO QUE CONTENGA LO INDICADO EN LOS APARTADOS',
+    hora: '17:25'
+  },
+  {
+    fecha: '2024-11-22',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de Tarea para entregar "5-3-Ejerciciosut5dwec"',
+    descripcion: 'Vencimiento de Tarea para entregar "5-3-Ejerciciosut5dwec"',
+    hora: '23:59'
+  }, 
+  {
+    fecha: '2024-11-25',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de EJERCICIOUT4-2-VIDEO',
+    descripcion: '',
+    hora: '23:59'
+  },
+  {
+    fecha: '2024-11-25',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de Tarea para entregar "5-4-Ejerciciosut5dwec"',
+    descripcion: 'Una discoteca lanza una promoción de bebida gratis para todos los clientes que se registren en su página web.',
+    hora: '23:59'
+  }, 
+  {
+    fecha: '2024-11-29',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de EJERCICIOUT4-3-CANVAS',
+    descripcion: '',
+    hora: '23:59'
+  },
+  {
+    fecha: '2024-11-29',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de Tarea para entregar "5-5-Ejerciciosut5dwec"',
+    descripcion: 'Ampliar el ejercicio resuelto con anterioridad “5-4Enunciadoejerciciospropuestosut5dwec.docx” que realizaba la validación de un formulario en JavaScript.',
+    hora: '23:59'
+  },
+  {
+    fecha: '2024-12-02',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de EJERCICIOUT4-4-DRAGNADDROP',
+    descripcion: '',
+    hora: '23:24'
+  },
+  {
+    fecha: '2024-12-04',
+    tipo: 'Examen',
+    asignatura: 'Examen de Cliente',
+    descripcion: '',
+    hora: 'por verificar'
+  },
+  {
+    fecha: '2024-12-08',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de EJERCICIOUT4-5-WEBSTORAGE',
+    descripcion: '',
+    hora: '23:59'
+  },
+  {
+    fecha: '2024-12-09',
+    tipo: 'Práctica',
+    asignatura: 'Vencimiento de EJERCICIO4-6-sprites',
+    descripcion: '',
+    hora: '23:59'
+  },
+  {
+    fecha: '2024-12-11',
+    tipo: 'Examen',
+    asignatura: 'Examen de Diseño',
+    descripcion: '',
+    hora: 'por verificar'
+  }
+];
+---
+
+<Layout title="Calendario">
+	<div class="space-y-8 py-8">
+		<h1 class="text-3xl font-medium text-slate-800 dark:text-white">Calendario</h1>
+		
+		<div class="grid gap-4">
+			{eventos.map(evento => (
+				<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-6 hover:border-slate-200 dark:hover:border-slate-600 hover:shadow-sm">
+					<div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+						<div class="space-y-2">
+							<span class="inline-block px-3 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 rounded-full">
+								{evento.tipo}
+							</span>
+							<h3 class="text-lg font-medium text-slate-800 dark:text-white">{evento.asignatura}</h3>
+							<p class="text-slate-600 dark:text-slate-300">{evento.descripcion}</p>
+						</div>
+						<div class="text-left sm:text-right shrink-0">
+							<p class="text-sm text-slate-600 dark:text-slate-300">{new Date(evento.fecha).toLocaleDateString('es-ES', {
+								weekday: 'long',
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric'
+							})}</p>
+							<p class="font-medium text-slate-800 dark:text-white mt-1">{evento.hora}</p>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</Layout>
