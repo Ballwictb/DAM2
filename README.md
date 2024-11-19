@@ -1,3 +1,5 @@
+![Netlify Status](https://api.netlify.com/api/v1/badges/2d1dcdb0-821b-461f-b56b-abbc9ac485d6/deploy-status)
+
 # 📚 **Recursos y Organización para la Clase**
 
 Bienvenido a **Recursos y Organización para la Clase**, una plataforma diseñada para ayudarte a mantenerte al día con tus clases. Esta página incluye:
