@@ -73,6 +73,19 @@ const eventos = [
     hora: '08:30'
   }
 ];
+
+
+const eventosSorted = eventos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
+const eventosPorMes = eventosSorted.reduce((acc, evento) => {
+  const fecha = new Date(evento.fecha);
+  const mes = fecha.toLocaleString('es-ES', { month: 'long', year: 'numeric' });
+  if (!acc[mes]) {
+    acc[mes] = [];
+  }
+  acc[mes].push(evento);
+  return acc;
+}, {});
 ---
 
 <Layout title="Calendario">
