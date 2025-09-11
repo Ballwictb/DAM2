@@ -3,44 +3,17 @@ import Layout from '../layouts/Layout.astro';
 
 const eventos = [
   {
-    fecha: '2025-01-14',
-    tipo: 'Practica',
-    asignatura: 'Vencimiento de Ejercicio 1 UT7 JQuery AJAX Hacerlo funcionar en XAMPP. Mandar capturas',
-    descripcion: 'Entregar capturas de su funcionamiento en el WAMP del alumno.',
-    hora: '23:59'
+    fecha: '2025-09-10',
+    tipo: 'Evento',
+    asignatura: 'Presentación',
+    descripcion: 'Presentación del ciclo DAM: curso, horarios y profesorado.',
+    hora: '16:00'
   },
-{
-    fecha: '2025-01-14',
-    tipo: 'Practica',
-    asignatura: 'Vencimiento de Entrega de puesta en funcionamiento en XAMMP de los ejemplos de AJAXJS',
-    descripcion: '',
-    hora: '23:59'
-  },
-{
-    fecha: '2025-01-22',
-    tipo: 'Recuperación',
-    asignatura: 'Servidor',
-    descripcion: '',
-    hora: '11:35'
-  },
-{
-    fecha: '2025-01-15',
-    tipo: 'Practica',
-    asignatura: 'Vencimiento de Entrega ejercicios ut5-2',
-    descripcion: '',
-    hora: '23:59'
-  },
-{
-    fecha: '2025-01-17',
-    tipo: 'Practica',
-    asignatura: 'Vencimiento de Test UD1. Arquitectura Red / Web',
-    descripcion: '',
-    hora: '23:59'
-  },
+
 ];
 
 
-const eventosSorted = eventos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+const eventosSorted = eventos.sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
 
 const eventosPorMes = eventosSorted.reduce((acc, evento) => {
   const fecha = new Date(evento.fecha);
