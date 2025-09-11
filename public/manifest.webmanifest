@@ -2,7 +2,7 @@
     "name": "DAM2",
     "short_name": "DAM2",
     "description": "Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases.",
-    "start_url": "/index.astro",
+    "start_url": "/",
     "scope": "/",
     "display": "standalone",
     "orientation": "portrait",
