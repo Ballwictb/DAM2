@@ -1,0 +1,15 @@
+{
+    "name": "DAM2",
+    "short_name": "DAM2",
+    "description": "Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases.",
+    "start_url": "/index.astro",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#1e293b",
+    "theme_color": "#cbd7dc",
+    "lang": "es-ES",
+    "dir": "ltr",
+    "related_applications": [],
+    "prefer_related_applications": false
+}
