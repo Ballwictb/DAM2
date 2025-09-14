@@ -16,12 +16,30 @@ const horario = [
   {
     dia: "Martes",
     clases: [
-      { hora: "15:30 - 16:25", asignatura: "Sostenibilidad aplicada al sistema productivo" },
-      { hora: "16:25 - 17:20", asignatura: "Itinerario personal para la empleabilidad II" },
-      { hora: "17:20 - 18:15", asignatura: "Itinerario personal para la empleabilidad II" },
-      { hora: "18:30 - 19:25", asignatura: "Programación de servicios y procesos" },
-      { hora: "19:25 - 20:20", asignatura: "Programación de servicios y procesos" },
-      { hora: "20:20 - 21:15", asignatura: "Programación de servicios y procesos" },
+      {
+        hora: "15:30 - 16:25",
+        asignatura: "Sostenibilidad aplicada al sistema productivo",
+      },
+      {
+        hora: "16:25 - 17:20",
+        asignatura: "Itinerario personal para la empleabilidad II",
+      },
+      {
+        hora: "17:20 - 18:15",
+        asignatura: "Itinerario personal para la empleabilidad II",
+      },
+      {
+        hora: "18:30 - 19:25",
+        asignatura: "Programación de servicios y procesos",
+      },
+      {
+        hora: "19:25 - 20:20",
+        asignatura: "Programación de servicios y procesos",
+      },
+      {
+        hora: "20:20 - 21:15",
+        asignatura: "Programación de servicios y procesos",
+      },
     ],
   },
   {
@@ -30,9 +48,18 @@ const horario = [
       { hora: "15:30 - 16:25", asignatura: "Desarrollo de interfaces" },
       { hora: "16:25 - 17:20", asignatura: "Desarrollo de interfaces" },
       { hora: "17:20 - 18:15", asignatura: "Desarrollo de interfaces" },
-      { hora: "18:30 - 19:25", asignatura: "Programación multimedia y dispositivos móviles" },
-      { hora: "19:25 - 20:20", asignatura: "Programación multimedia y dispositivos móviles" },
-      { hora: "20:20 - 21:15", asignatura: "Programación de servicios y procesos" },
+      {
+        hora: "18:30 - 19:25",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      {
+        hora: "19:25 - 20:20",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      {
+        hora: "20:20 - 21:15",
+        asignatura: "Programación de servicios y procesos",
+      },
     ],
   },
   {
@@ -40,7 +67,10 @@ const horario = [
     clases: [
       { hora: "15:30 - 16:25", asignatura: "Desarrollo de interfaces" },
       { hora: "16:25 - 17:20", asignatura: "Desarrollo de interfaces" },
-      { hora: "17:20 - 18:15", asignatura: "Digitalización aplicada a los sectores productivos (GS)" },
+      {
+        hora: "17:20 - 18:15",
+        asignatura: "Digitalización aplicada a los sectores productivos",
+      },
       { hora: "18:30 - 19:25", asignatura: "Acceso a datos" },
       { hora: "19:25 - 20:20", asignatura: "Acceso a datos" },
       { hora: "20:20 - 21:15", asignatura: "Acceso a datos" },
@@ -49,8 +79,14 @@ const horario = [
   {
     dia: "Viernes",
     clases: [
-      { hora: "15:30 - 16:25", asignatura: "Programación multimedia y dispositivos móviles" },
-      { hora: "16:25 - 17:20", asignatura: "Programación multimedia y dispositivos móviles" },
+      {
+        hora: "15:30 - 16:25",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      {
+        hora: "16:25 - 17:20",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
       { hora: "17:20 - 18:15", asignatura: "Inglés profesional (GS)" },
       { hora: "18:30 - 19:25", asignatura: "Sistemas de gestión empresarial" },
       { hora: "19:25 - 20:20", asignatura: "Sistemas de gestión empresarial" },
@@ -96,14 +132,15 @@ const horario = [
           <div class="space-y-4">
             {dia.clases.map((clase) => (
               <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg p-4 transition-all duration-200 ease-in-out hover:shadow-md">
-                <div class="flex flex-wrap justify-between items-center mb-2">
-                  <h3 class="text-lg font-medium text-gray-800 dark:text-gray-100">
+                <div class="flex flex-wrap  items-center mb-2">
+                  <h3 class="text-lg font-medium text-gray-800 dark:text-gray-100 ">
                     {clase.asignatura}
                   </h3>
-                  <span class="text-sm text-gray-600 dark:text-gray-400">
-                    {clase.hora}
-                  </span>
                 </div>
+
+                <span class="text-sm text-gray-600 dark:text-gray-300">
+                  {clase.hora}
+                </span>
               </div>
             ))}
           </div>
@@ -159,7 +196,13 @@ const horario = [
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => showSchedule(index));
     });
-
-    showSchedule(0);
+    const fecha = new Date().getDay();
+    let inicio;
+    if (fecha == 0 || fecha == 6) {
+      inicio = 0;
+    } else {
+      inicio = fecha - 1;
+    }
+    showSchedule(inicio);
   });
 </script>

@@ -98,35 +98,52 @@ import ThemeToggle from "./ThemeToggle.astro";
     </div>
   </nav>
 
-  <div class="md:hidden hidden" id="mobileMenu">
+  <div
+    class="md:hidden hidden absolute dark:bg-black bg-white w-full"
+    id="mobileMenu"
+  >
     <ul
       class="flex flex-col py-4 px-4 space-y-2 border-t border-slate-100 dark:border-slate-800"
     >
       <li>
         <a
           href="/"
-          class="block py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-          >Inicio</a
+          class="block w-full px-4 py-2 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300
+               hover:bg-slate-100 hover:text-slate-900
+               dark:hover:bg-slate-700 dark:hover:text-white
+               transition-colors duration-200"
         >
+          Inicio
+        </a>
       </li>
+
       <li>
         <a
           href="/horario"
-          class="block py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+          class="block w-full px-4 py-2 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300
+               hover:bg-slate-100 hover:text-slate-900
+               dark:hover:bg-slate-700 dark:hover:text-white
+               transition-colors duration-200"
           >Horario</a
         >
       </li>
       <li>
         <a
           href="/calendario"
-          class="block py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+          class="block w-full px-4 py-2 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300
+               hover:bg-slate-100 hover:text-slate-900
+               dark:hover:bg-slate-700 dark:hover:text-white
+               transition-colors duration-200"
           >Calendario</a
         >
       </li>
       <li>
         <a
           href="/recursos"
-          class="block py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+          class="block w-full px-4 py-2 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300
+               hover:bg-slate-100 hover:text-slate-900
+               dark:hover:bg-slate-700 dark:hover:text-white
+               transition-colors duration-200"
           >Recursos</a
         >
       </li>
