@@ -1,8 +1,8 @@
 ---
-import Header from '../components/Header.astro';
+import Header from "../components/Header.astro";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -10,92 +10,111 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases." /> 
-		<meta property="og:url" content="https://dam2.netlify.app/">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="Dam2 - Inicio">
-		<meta property="og:description" content="Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases.">
-		<meta property="og:image" content="https://ogcdn.net/61acc7f5-f6e3-436f-839e-f9ec679d1714/v2/https%3A%2F%2Fdam2.netlify.app%2F/DAM2%20-%20Inicio/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F24b26f4c-9acc-4c09-ac76-5c20df8b5c0c.png%3Ftoken%3D1Q9D-ZlE8BuGMtys4Qc1b04o-FA_Pv6gY4Kdp-r-xhI%26height%3D200%26width%3D200%26expires%3D33293571347/%23000000/og.png">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:domain" content="dawi2.netlify.app">
-		<meta property="twitter:url" content="https://dam2.netlify.app/">
-		<meta name="twitter:title" content="Dam2 - Inicio">
-		<meta name="twitter:description" content="Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases.">
-		<meta name="twitter:image" content="https://ogcdn.net/61acc7f5-f6e3-436f-839e-f9ec679d1714/v2/https%3A%2F%2Fdam2.netlify.app%2F/DAM2%20-%20Inicio/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F24b26f4c-9acc-4c09-ac76-5c20df8b5c0c.png%3Ftoken%3D1Q9D-ZlE8BuGMtys4Qc1b04o-FA_Pv6gY4Kdp-r-xhI%26height%3D200%26width%3D200%26expires%3D33293571347/%23000000/og.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases."
+    />
+    <meta property="og:url" content="https://dam2.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dam2 - Inicio" />
+    <meta
+      property="og:description"
+      content="Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases."
+    />
+    <meta
+      property="og:image"
+      content="https://ogcdn.net/61acc7f5-f6e3-436f-839e-f9ec679d1714/v2/https%3A%2F%2Fdam2.netlify.app%2F/DAM2%20-%20Inicio/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F24b26f4c-9acc-4c09-ac76-5c20df8b5c0c.png%3Ftoken%3D1Q9D-ZlE8BuGMtys4Qc1b04o-FA_Pv6gY4Kdp-r-xhI%26height%3D200%26width%3D200%26expires%3D33293571347/%23000000/og.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="dawi2.netlify.app" />
+    <meta property="twitter:url" content="https://dam2.netlify.app/" />
+    <meta name="twitter:title" content="Dam2 - Inicio" />
+    <meta
+      name="twitter:description"
+      content="Bienvenido a Recursos y Organización para la Clase, una plataforma diseñada para ayudarte a mantenerte al día con tus clases."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ogcdn.net/61acc7f5-f6e3-436f-839e-f9ec679d1714/v2/https%3A%2F%2Fdam2.netlify.app%2F/DAM2%20-%20Inicio/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F24b26f4c-9acc-4c09-ac76-5c20df8b5c0c.png%3Ftoken%3D1Q9D-ZlE8BuGMtys4Qc1b04o-FA_Pv6gY4Kdp-r-xhI%26height%3D200%26width%3D200%26expires%3D33293571347/%23000000/og.png"
+    />
 
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="manifest" href="/manifest.webmanifest" />
-
-		<title>{title}</title>
-	</head>
-	<body class="bg-slate-50 dark:bg-slate-950 min-h-screen">
-		<Header />
-		<main class="max-w-5xl mx-auto p-4 sm:p-6">
-			<slot />
-		</main>
-	</body>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Ballwictb/font-awesome-sixball-v2@main/six-rp/css/all.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+      defer></script>
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 min-h-screen">
+    <Header />
+    <main class="max-w-5xl mx-auto p-4 sm:p-6">
+      <slot />
+    </main>
+  </body>
 </html>
 
 <style is:global>
-	:root {
-		--transition-speed: 0.2s;
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		scroll-behavior: smooth;
-	}
-	* {
-		transition: all var(--transition-speed) ease-in-out;
-	}
-	
-body {
-  --sb-track-color: #cbd7dc;
-  --sb-thumb-color: #1e293b;
-  --sb-size: 14px;
-}
-
-body::-webkit-scrollbar {
-  width: var(--sb-size)
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
-  border-radius: 3px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
-  border-radius: 3px;
-  
-}
-
-@supports not selector(::-webkit-scrollbar) {
-  body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+  :root {
+    --transition-speed: 0.2s;
   }
-}
+  html {
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  * {
+    transition: all var(--transition-speed) ease-in-out;
+  }
+
+  body {
+    --sb-track-color: #cbd7dc;
+    --sb-thumb-color: #1e293b;
+    --sb-size: 14px;
+  }
+
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+  }
 </style>
 
 <script>
   const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme');
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
     }
-    return 'light';
+    return "light";
   })();
 
-  if (theme === 'light') {
-    document.documentElement.classList.remove('dark');
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
   } else {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.add("dark");
   }
 
-  window.localStorage.setItem('theme', theme);
+  window.localStorage.setItem("theme", theme);
 </script>

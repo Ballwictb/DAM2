@@ -211,9 +211,14 @@ const horarioTemp = [
       >
         Horario Temporal
       </button>
+      <button
+        id="btn-download"
+        class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 text-white font-medium shadow transition"
+      >
+        <i class="fa-solid fa-calendar-arrow-down"></i>
+      </button>
     </div>
 
-    <!-- Tabs normal -->
     <nav class="mb-8" id="tabs-normal">
       <ul class="flex flex-wrap justify-center gap-2">
         {
@@ -316,6 +321,74 @@ const horarioTemp = [
     const tabsTemp = document.getElementById("tabs-temp");
     const btnHorarioTemp = document.getElementById("btn-horarioTemp");
     const btnHorario = document.getElementById("btn-horario");
+    const btnDownload = document.getElementById("btn-download");
+
+    btnDownload.addEventListener("click", () => {
+      const horarioVisible = !horario1.classList.contains("hidden")
+        ? "horario"
+        : "horarioTemp";
+
+      const container = document.getElementById(horarioVisible);
+      const clone = container.cloneNode(true);
+      clone.style.position = "fixed";
+      clone.style.top = "-9999px";
+      clone.style.display = "flex";
+      clone.style.flexDirection = "row";
+      clone.style.justifyContent = "space-between";
+      clone.style.width = "1600px";
+      clone.style.padding = "40px";
+      clone.style.backgroundColor = "#f3f4f6";
+      clone.style.borderRadius = "20px";
+      clone.style.fontFamily = "'Inter', sans-serif";
+      clone.style.boxShadow = "0 15px 40px rgba(0,0,0,0.1)";
+      document.body.appendChild(clone);
+
+      clone
+        .querySelectorAll(".hidden")
+        .forEach((el) => el.classList.remove("hidden"));
+
+      clone.querySelectorAll("div[id^='schedule']").forEach((diaDiv) => {
+        diaDiv.style.flex = "1";
+        diaDiv.style.margin = "0 10px";
+        diaDiv.style.backgroundColor = "#ffffff";
+        diaDiv.style.padding = "20px";
+        diaDiv.style.borderRadius = "16px";
+        diaDiv.style.boxShadow = "0 5px 20px rgba(0,0,0,0.05)";
+        diaDiv.style.display = "flex";
+        diaDiv.style.flexDirection = "column";
+        diaDiv.style.alignItems = "center";
+
+        const h2 = diaDiv.querySelector("h2");
+        h2.style.fontSize = "22px";
+        h2.style.fontWeight = "700";
+        h2.style.color = "#000";
+        h2.style.marginBottom = "16px";
+
+        diaDiv
+          .querySelectorAll("div.bg-white, div.dark\\:bg-gray-800")
+          .forEach((clase) => {
+            clase.style.width = "100%";
+            clase.style.padding = "12px 16px";
+            clase.style.margin = "6px 0";
+            clase.style.borderLeft = "6px solid #6366f1";
+            clase.style.borderRadius = "12px";
+            clase.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+            clase.style.backgroundColor = "#1E2936";
+            clase.style.transition = "all 0.3s ease-in-out";
+            clase.style.fontSize = "14px";
+            clase.style.textAlign = "center";
+            clase.style.color = "#000";
+          });
+      });
+
+      html2canvas(clone, { backgroundColor: null, scale: 2 }).then((canvas) => {
+        const link = document.createElement("a");
+        link.download = "horario.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        document.body.removeChild(clone);
+      });
+    });
 
     function getInitialIndex() {
       const fecha = new Date().getDay();
