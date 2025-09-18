@@ -94,6 +94,100 @@ const horario = [
     ],
   },
 ];
+
+const horarioTemp = [
+  {
+    dia: "Lunes",
+    clases: [
+      { hora: "15:30 - 16:25", asignatura: "Módulo profesional optativo II" },
+      { hora: "16:25 - 17:20", asignatura: "Módulo profesional optativo II" },
+      { hora: "17:20 - 18:15", asignatura: "Módulo profesional optativo II" },
+      { hora: "18:30 - 19:25", asignatura: "Inglés profesional (GS)" },
+      { hora: "19:25 - 20:20", asignatura: "NO hay" },
+      { hora: "20:20 - 21:15", asignatura: "No hay" },
+    ],
+  },
+  {
+    dia: "Martes",
+    clases: [
+      {
+        hora: "15:30 - 16:25",
+        asignatura: "Sostenibilidad aplicada al sistema productivo",
+      },
+      {
+        hora: "16:25 - 17:20",
+        asignatura: "Itinerario personal para la empleabilidad II",
+      },
+      {
+        hora: "17:20 - 18:15",
+        asignatura: "Itinerario personal para la empleabilidad II",
+      },
+      {
+        hora: "18:30 - 19:25",
+        asignatura: "Programación de servicios y procesos",
+      },
+      {
+        hora: "19:25 - 20:20",
+        asignatura: "Programación de servicios y procesos",
+      },
+      {
+        hora: "20:20 - 21:15",
+        asignatura: "Programación de servicios y procesos",
+      },
+    ],
+  },
+  {
+    dia: "Miércoles",
+    clases: [
+      { hora: "15:30 - 16:25", asignatura: "Desarrollo de interfaces" },
+      { hora: "16:25 - 17:20", asignatura: "Desarrollo de interfaces" },
+      { hora: "17:20 - 18:15", asignatura: "Desarrollo de interfaces" },
+      {
+        hora: "18:30 - 19:25",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      {
+        hora: "19:25 - 20:20",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      {
+        hora: "20:20 - 21:15",
+        asignatura: "Programación de servicios y procesos",
+      },
+    ],
+  },
+  {
+    dia: "Jueves",
+    clases: [
+      { hora: "15:30 - 16:25", asignatura: "Desarrollo de interfaces" },
+      { hora: "16:25 - 17:20", asignatura: "Desarrollo de interfaces" },
+      {
+        hora: "17:20 - 18:15",
+        asignatura: "Digitalización aplicada a los sectores productivos",
+      },
+      { hora: "18:30 - 19:25", asignatura: "Acceso a datos" },
+      { hora: "19:25 - 20:20", asignatura: "Acceso a datos" },
+      { hora: "20:20 - 21:15", asignatura: "Acceso a datos" },
+    ],
+  },
+  {
+    dia: "Viernes",
+    clases: [
+      {
+        hora: "15:30 - 16:25",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      {
+        hora: "16:25 - 17:20",
+        asignatura: "Programación multimedia y dispositivos móviles",
+      },
+      { hora: "17:20 - 18:15", asignatura: "Inglés profesional (GS)" },
+      { hora: "18:30 - 19:25", asignatura: "Sistemas de gestión empresarial" },
+      { hora: "19:25 - 20:20", asignatura: "Sistemas de gestión empresarial" },
+      { hora: "20:20 - 21:15", asignatura: "Sistemas de gestión empresarial" },
+    ],
+  },
+];
 ---
 
 <Layout title="Horario de Clases 2025">
@@ -104,7 +198,23 @@ const horario = [
       Horario
     </h1>
 
-    <nav class="mb-8">
+    <div class="flex justify-center gap-4 mb-6">
+      <button
+        id="btn-horario"
+        class="px-4 py-2 rounded-lg bg-indigo-500 text-white font-medium shadow hover:bg-indigo-600 transition"
+      >
+        Horario
+      </button>
+      <button
+        id="btn-horarioTemp"
+        class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+      >
+        Horario Temporal
+      </button>
+    </div>
+
+    <!-- Tabs normal -->
+    <nav class="mb-8" id="tabs-normal">
       <ul class="flex flex-wrap justify-center gap-2">
         {
           horario.map((dia, index) => (
@@ -113,7 +223,7 @@ const horario = [
                 class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
                      text-gray-700 bg-gray-100 hover:bg-gray-200
                      dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
-                id={`tab-${index}`}
+                id={`tab-normal-${index}`}
               >
                 {dia.dia}
               </button>
@@ -123,49 +233,122 @@ const horario = [
       </ul>
     </nav>
 
-    {
-      horario.map((dia, index) => (
-        <div id={`schedule-${index}`} class="hidden">
-          <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
-            {dia.dia}
-          </h2>
-          <div class="space-y-4">
-            {dia.clases.map((clase) => (
-              <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg p-4 transition-all duration-200 ease-in-out hover:shadow-md">
-                <div class="flex flex-wrap  items-center mb-2">
-                  <h3 class="text-lg font-medium text-gray-800 dark:text-gray-100 ">
-                    {clase.asignatura}
-                  </h3>
-                </div>
+    <nav class="mb-8 hidden" id="tabs-temp">
+      <ul class="flex flex-wrap justify-center gap-2">
+        {
+          horarioTemp.map((dia, index) => (
+            <li>
+              <button
+                class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                     text-gray-700 bg-gray-100 hover:bg-gray-200
+                     dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
+                id={`tab-temp-${index}`}
+              >
+                {dia.dia}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
 
-                <span class="text-sm text-gray-600 dark:text-gray-300">
-                  {clase.hora}
-                </span>
-              </div>
-            ))}
+    <div id="horario">
+      {
+        horario.map((dia, index) => (
+          <div id={`schedule-normal-${index}`} class="hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+              {dia.dia}
+            </h2>
+            <div class="space-y-4">
+              {dia.clases.map((clase) => (
+                <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg p-4 transition-all duration-200 ease-in-out hover:shadow-md">
+                  <div class="flex flex-wrap  items-center mb-2">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-gray-100 ">
+                      {clase.asignatura}
+                    </h3>
+                  </div>
+
+                  <span class="text-sm text-gray-600 dark:text-gray-300">
+                    {clase.hora}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
+
+    <div id="horarioTemp" class="hidden">
+      {
+        horarioTemp.map((dia, index) => (
+          <div id={`schedule-temp-${index}`} class="hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+              {dia.dia}
+            </h2>
+            <div class="space-y-4">
+              {dia.clases.map((clase) => (
+                <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg p-4 transition-all duration-200 ease-in-out hover:shadow-md">
+                  <div class="flex flex-wrap  items-center mb-2">
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-gray-100 ">
+                      {clase.asignatura}
+                    </h3>
+                  </div>
+
+                  <span class="text-sm text-gray-600 dark:text-gray-300">
+                    {clase.hora}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
   </main>
 </Layout>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const tabs = document.querySelectorAll('[id^="tab-"]');
-    const schedules = document.querySelectorAll('[id^="schedule-"]');
+    const horario1 = document.getElementById("horario");
+    const horarioT = document.getElementById("horarioTemp");
+    const tabsNormal = document.getElementById("tabs-normal");
+    const tabsTemp = document.getElementById("tabs-temp");
+    const btnHorarioTemp = document.getElementById("btn-horarioTemp");
+    const btnHorario = document.getElementById("btn-horario");
 
-    function showSchedule(index) {
+    function getInitialIndex() {
+      const fecha = new Date().getDay();
+      if (fecha === 0 || fecha === 6) return 0;
+      return fecha - 1;
+    }
+
+    let activeIndex = getInitialIndex();
+
+    function showSchedule(index, tipo = "normal") {
+      activeIndex = index;
+
+      const scheduleSelector =
+        tipo === "normal"
+          ? '[id^="schedule-normal-"]'
+          : '[id^="schedule-temp-"]';
+      const tabSelector =
+        tipo === "normal" ? '[id^="tab-normal-"]' : '[id^="tab-temp-"]';
+
+      const schedules = document.querySelectorAll(scheduleSelector);
+      const tabs = document.querySelectorAll(tabSelector);
+
+      if (!schedules.length || !tabs.length) return;
+
+      const idx = Math.max(0, Math.min(index, schedules.length - 1));
+
       schedules.forEach((schedule, i) => {
-        if (i === index) {
-          schedule.classList.remove("hidden");
-        } else {
-          schedule.classList.add("hidden");
-        }
+        if (i === idx) schedule.classList.remove("hidden");
+        else schedule.classList.add("hidden");
       });
 
       tabs.forEach((tab, i) => {
-        if (i === index) {
+        if (i === idx) {
           tab.classList.add(
             "bg-indigo-500",
             "text-white",
@@ -193,16 +376,77 @@ const horario = [
       });
     }
 
-    tabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => showSchedule(index));
+    document.querySelectorAll('[id^="tab-normal-"]').forEach((tab, index) => {
+      tab.addEventListener("click", () => showSchedule(index, "normal"));
     });
-    const fecha = new Date().getDay();
-    let inicio;
-    if (fecha == 0 || fecha == 6) {
-      inicio = 0;
-    } else {
-      inicio = fecha - 1;
-    }
-    showSchedule(inicio);
+
+    document.querySelectorAll('[id^="tab-temp-"]').forEach((tab, index) => {
+      tab.addEventListener("click", () => showSchedule(index, "temp"));
+    });
+
+    btnHorario.addEventListener("click", () => {
+      btnHorario.classList.remove(
+        "text-gray-700",
+        "bg-gray-100",
+        "dark:text-gray-200",
+        "dark:bg-gray-800"
+      );
+      btnHorario.classList.add(
+        "bg-indigo-500",
+        "text-white",
+        "dark:bg-indigo-600"
+      );
+      btnHorarioTemp.classList.add(
+        "text-gray-700",
+        "bg-gray-200",
+        "dark:bg-gray-700",
+        "hover:bg-gray-300",
+        "dark:hover:bg-gray-600"
+      );
+      btnHorarioTemp.classList.remove(
+        "bg-indigo-500",
+        "text-white",
+        "dark:bg-indigo-600"
+      );
+      horario1.classList.remove("hidden");
+      tabsNormal.classList.remove("hidden");
+      horarioT.classList.add("hidden");
+      tabsTemp.classList.add("hidden");
+
+      showSchedule(activeIndex, "normal");
+    });
+
+    btnHorarioTemp.addEventListener("click", () => {
+      btnHorarioTemp.classList.remove(
+        "text-gray-700",
+        "bg-gray-200",
+        "dark:bg-gray-700",
+        "hover:bg-gray-300",
+        "dark:hover:bg-gray-600"
+      );
+      btnHorarioTemp.classList.add(
+        "bg-indigo-500",
+        "text-white",
+        "dark:bg-indigo-600"
+      );
+      btnHorario.classList.add(
+        "text-gray-700",
+        "bg-gray-100",
+        "dark:text-gray-200",
+        "dark:bg-gray-800"
+      );
+      btnHorario.classList.remove(
+        "bg-indigo-500",
+        "text-white",
+        "dark:bg-indigo-600"
+      );
+      horarioT.classList.remove("hidden");
+      tabsTemp.classList.remove("hidden");
+      horario1.classList.add("hidden");
+      tabsNormal.classList.add("hidden");
+      showSchedule(activeIndex, "temp");
+    });
+
+    showSchedule(activeIndex, "normal");
   });
 </script>
